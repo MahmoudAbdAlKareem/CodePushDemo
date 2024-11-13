@@ -100,6 +100,7 @@ android {
         release {
             // Caution! In production, you need to generate your own keystore file.
             // see https://reactnative.dev/docs/signed-apk-android.
+            buildConfigField "String", "CODEPUSH_KEY", "5aa41281-cf9b-4c03-956d-55bda9d5f3cd"
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"

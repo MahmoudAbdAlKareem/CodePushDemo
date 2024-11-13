@@ -1,10 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
+import CodePush from "react-native-code-push";
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
@@ -16,6 +10,7 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import { AppRegistry } from "react-native";
 
 import {
   Colors,
@@ -28,6 +23,8 @@ import {
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
+
+let codePushOptions = { checkFrequency: CodePush.CheckFrequency.ON_APP_START };
 
 function Section({children, title}: SectionProps): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -115,4 +112,6 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+const AppContainer = CodePush(codePushOptions)(App);
+AppRegistry.registerComponent("Demo", () => AppContainer);
+
